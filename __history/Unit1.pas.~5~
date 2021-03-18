@@ -1,0 +1,68 @@
+unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Edit, System.ImageList,
+  FMX.ImgList;
+
+type
+  TForm1 = class(TForm)
+    Rectangle1: TRectangle;
+    Image1: TImage;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Image2: TImage;
+    Image3: TImage;
+    procedure Button2Click(Sender: TObject);
+    procedure Edit1KeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+    procedure FormActivate(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+  private
+    { Private-Deklarationen }
+  public
+    { Public-Deklarationen }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  application.Terminate;      //Schlieﬂt Form1
+end;
+
+procedure TForm1.Edit1KeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+  Shift: TShiftState);
+begin
+  if key = 13  then
+    begin
+      if edit1.Text = 'admin' then
+         begin
+           Image1.Visible :=false;
+           edit1.Visible := false;
+         End
+      else
+        Edit1.Text := 'Dein Passwort ist falsch!';
+    end;
+
+end;
+
+procedure TForm1.FormActivate(Sender: TObject);
+begin
+  Image2.Visible := false;
+end;
+
+procedure TForm1.Image2Click(Sender: TObject);
+begin
+application.Terminate;
+end;
+
+end.
