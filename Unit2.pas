@@ -20,6 +20,7 @@ type
     Label1: TLabel;
     procedure Image2Click(Sender: TObject);
     procedure Image6Click(Sender: TObject);
+    procedure TClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -33,7 +34,7 @@ implementation
 
 {$R *.fmx}
 
-uses Unit1;
+uses Unit1, Unit4;
 
 procedure TForm2.Image2Click(Sender: TObject);
 begin
@@ -42,9 +43,14 @@ end;
 
 procedure TForm2.Image6Click(Sender: TObject);
 begin
+  Form2.Hide;
+  Form1.show;
+end;
 
-          Form2.Hide;
-          Form1.show;
+procedure TForm2.TClick(Sender: TObject);
+begin
+  Form2.Hide;
+  Form4.Show;
 end;
 
 end.

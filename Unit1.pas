@@ -39,9 +39,7 @@ end;
 
 procedure TForm1.Image2Click(Sender: TObject);
 begin
-application.Terminate;
+  application.Terminate;
 end;
-
-
 
 end.

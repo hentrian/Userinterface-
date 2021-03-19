@@ -21,6 +21,8 @@ type
     procedure Image2Click(Sender: TObject);
     procedure Image4Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure Edit1click(Sender: TObject);
+    procedure Edit2click(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -54,6 +56,16 @@ begin
       else
         showMessage ('Dein Benutzername oder Passwort sind falsch!');
     end;
+end;
+
+procedure TForm3.Edit1click(Sender: TObject);
+begin
+  Edit1.Text:= '';
+end;
+
+procedure TForm3.Edit2click(Sender: TObject);
+begin
+  Edit2.Text:= '';
 end;
 
 procedure TForm3.Image2Click(Sender: TObject);
