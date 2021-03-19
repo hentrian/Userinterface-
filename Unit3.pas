@@ -14,11 +14,17 @@ type
     Image4: TImage;
     Label1: TLabel;
     Label2: TLabel;
+    Image1: TImage;
     Edit1: TEdit;
+    Edit2: TEdit;
+    Button1: TButton;
     procedure Image2Click(Sender: TObject);
     procedure Edit1Keydown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
     procedure Image4Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Edit2Keydown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
   private
     { Private-Deklarationen }
   public
@@ -34,6 +40,27 @@ implementation
 
 uses Unit2;
 
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+    begin
+      if Edit1.Text = 'admin' then
+
+         begin
+            edit1.Visible:= false;
+            edit2.Visible:= false;
+            Image3.Visible := false;
+            Image4.Visible := true;
+            Image1.Visible:= false;
+            Label1.Visible:= false;
+            Label2.Visible:=true;
+            Button1.Visible:= false;
+         End
+      else
+        Edit1.Text := 'Dein Passwort ist falsch!';
+    end;
+
+end;
+
 procedure TForm3.Edit1Keydown(Sender: TObject; var Key: Word; var KeyChar: Char;
   Shift: TShiftState);
 begin
@@ -41,15 +68,38 @@ begin
     begin
       if edit1.Text = 'admin' then
          begin
-           edit1.Visible := false;
-           Image3.Visible:= false;
+           edit1.Visible:= false;
+           edit2.Visible:= false;
+           Image3.Visible := false;
            Image4.Visible := true;
-           Label1.Visible := false;
-           label2.Visible := true;
+           Image1.Visible:= false;
+           Label1.Visible:= false;
+           Label2.Visible:=true;
+           Button1.Visible:= false;
          End
       else
         Edit1.Text := 'Dein Passwort ist falsch!';
     end;
+
+end;
+
+procedure TForm3.Edit2Keydown(Sender: TObject; var Key: Word; var KeyChar: Char;
+  Shift: TShiftState);
+begin
+  if Edit1.Text = 'admin' then
+    begin
+      edit1.Visible:= false;
+      edit2.Visible:= false;
+      Image3.Visible := false;
+      Image4.Visible := true;
+      Image1.Visible:= false;
+      Label1.Visible:= false;
+      Label2.Visible:=true;
+      Button1.Visible:= false;
+    end
+  else
+    Edit1.Text := 'Dein Passwort ist falsch!';
+
 
 end;
 

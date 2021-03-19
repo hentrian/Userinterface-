@@ -10,14 +10,11 @@ uses
 type
   TForm2 = class(TForm)
     Rectangle1: TRectangle;
-    Image1: TImage;
     Image3: TImage;
     Image4: TImage;
     Image5: TImage;
     Image6: TImage;
     Image2: TImage;
-    Timer1: TTimer;
-    Timer2: TTimer;
     Timer3: TTimer;
     Timer4: TTimer;
     Timer5: TTimer;
@@ -25,6 +22,9 @@ type
     Timer8: TTimer;
     Timer9: TTimer;
     Timer6: TTimer;
+    Timer1: TTimer;
+    Timer2: TTimer;
+    Image1: TImage;
     procedure Image2Click(Sender: TObject);
     procedure formactive(Sender: TObject);
     procedure formCreate(Sender: TObject);
