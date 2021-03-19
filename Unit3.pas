@@ -19,12 +19,8 @@ type
     Edit2: TEdit;
     Button1: TButton;
     procedure Image2Click(Sender: TObject);
-    procedure Edit1Keydown(Sender: TObject; var Key: Word; var KeyChar: Char;
-      Shift: TShiftState);
     procedure Image4Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure Edit2Keydown(Sender: TObject; var Key: Word; var KeyChar: Char;
-      Shift: TShiftState);
   private
     { Private-Deklarationen }
   public
@@ -43,7 +39,7 @@ uses Unit2;
 procedure TForm3.Button1Click(Sender: TObject);
 begin
     begin
-      if Edit1.Text = 'admin' then
+      if (Edit2.Text = 'admin') and (Edit1.Text='admin') then
 
          begin
             edit1.Visible:= false;
@@ -56,51 +52,8 @@ begin
             Button1.Visible:= false;
          End
       else
-        Edit1.Text := 'Dein Passwort ist falsch!';
+        showMessage ('Dein Benutzername oder Passwort sind falsch!');
     end;
-
-end;
-
-procedure TForm3.Edit1Keydown(Sender: TObject; var Key: Word; var KeyChar: Char;
-  Shift: TShiftState);
-begin
-  if key = 13  then
-    begin
-      if edit1.Text = 'admin' then
-         begin
-           edit1.Visible:= false;
-           edit2.Visible:= false;
-           Image3.Visible := false;
-           Image4.Visible := true;
-           Image1.Visible:= false;
-           Label1.Visible:= false;
-           Label2.Visible:=true;
-           Button1.Visible:= false;
-         End
-      else
-        Edit1.Text := 'Dein Passwort ist falsch!';
-    end;
-
-end;
-
-procedure TForm3.Edit2Keydown(Sender: TObject; var Key: Word; var KeyChar: Char;
-  Shift: TShiftState);
-begin
-  if Edit1.Text = 'admin' then
-    begin
-      edit1.Visible:= false;
-      edit2.Visible:= false;
-      Image3.Visible := false;
-      Image4.Visible := true;
-      Image1.Visible:= false;
-      Label1.Visible:= false;
-      Label2.Visible:=true;
-      Button1.Visible:= false;
-    end
-  else
-    Edit1.Text := 'Dein Passwort ist falsch!';
-
-
 end;
 
 procedure TForm3.Image2Click(Sender: TObject);
@@ -108,11 +61,10 @@ begin
   application.Terminate;      //Schlieﬂt Form1
 end;
 
-
 procedure TForm3.Image4Click(Sender: TObject);
 begin
   Form3.Hide ;
-  Form2.Show;
+  Form2.Show;     //‹bergabe
 end;
 
 end.
