@@ -10,30 +10,34 @@ type
   TForm4 = class(TForm)
     Rectangle1: TRectangle;
     Rectangle2: TRectangle;
-    rechome: TRectangle;
     Brush1: TBrushObject;
-    recherz: TRectangle;
-    recidee: TRectangle;
-    reckühlschrank: TRectangle;
-    recsuche: TRectangle;
-    suche: TImage;
-    kühlschrank: TImage;
-    idee: TImage;
-    herz: TImage;
-    reckonto: TRectangle;
-    Konto: TImage;
-    home: TImage;
-    procedure kühlschrankClick(Sender: TObject);
-    procedure Image6Click(Sender: TObject);
-    procedure Ihome(Sender: TObject);
-    procedure kühlschrankMouseMove(Sender: TObject; Shift: TShiftState; X,
-      Y: Single);
-    procedure ideeMouseMove(Sender: TObject; Shift: TShiftState; X,
-      Y: Single);
-    procedure Isuche(Sender: TObject);
-    procedure Iidee(Sender: TObject);
-    procedure Iherz(Sender: TObject);
-    procedure Ikonto(Sender: TObject);
+    btsuche: TImage;
+    btkühlschrank: TImage;
+    btidee: TImage;
+    btherz: TImage;
+    btKonto: TImage;
+    bthome: TImage;
+    hghome: TImage;
+    hgsuche: TImage;
+    hgkühlschrank: TImage;
+    hgidee: TImage;
+    hgherz: TImage;
+    hgkonto: TImage;
+    Image1: TImage;
+    procedure btkühlschrankClick(Sender: TObject);
+    procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hghomehide(Sender: TObject);
+    procedure hgherzhide(Sender: TObject);
+    procedure hgherzshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgideeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgideehide(Sender: TObject);
+    procedure hgkontohide(Sender: TObject);
+    procedure hgkontoshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgksshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgkshide(Sender: TObject);
+    procedure hgsuchehide(Sender: TObject);
+    procedure hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure Image1Click(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -49,52 +53,75 @@ implementation
 
 uses Unit2;
 
-procedure TForm4.kühlschrankClick(Sender: TObject);
+procedure TForm4.btkühlschrankClick(Sender: TObject);
 begin
 form4.Hide;
 form2.Show;
 end;
 
-procedure TForm4.Iherz(Sender: TObject);
+procedure TForm4.hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
 begin
-  recherz.Visible:= true;
+  hghome.Visible:= true;
 end;
 
-procedure TForm4.Ihome(Sender: TObject);
+procedure TForm4.hgideehide(Sender: TObject);
 begin
-  rechome.Visible:= true;
+  hgidee.Visible:= false;
 end;
 
-procedure TForm4.Iidee(Sender: TObject);
+procedure TForm4.hgideeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
 begin
-  recidee.Visible:= true;
+  hgidee.Visible:= true;
 end;
 
-procedure TForm4.Ikonto(Sender: TObject);
+procedure TForm4.hgkontohide(Sender: TObject);
 begin
-  reckonto.Visible:= true;
+  hgkonto.Visible:=false;
 end;
 
-procedure TForm4.kühlschrankMouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Single);
+procedure TForm4.hgkontoshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
 begin
-  reckühlschrank.Visible := true;
+  hgkonto.Visible:=true;
 end;
 
-procedure TForm4.ideeMouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Single);
+procedure TForm4.hgkshide(Sender: TObject);
 begin
-  recidee.Visible:= true;
+  hgkühlschrank.Visible:=false;
 end;
 
-procedure TForm4.Image6Click(Sender: TObject);
+procedure TForm4.hgksshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgkühlschrank.Visible:=true;
+end;
+
+procedure TForm4.hgsuchehide(Sender: TObject);
+begin
+  hgsuche.Visible:= false
+end;
+
+procedure TForm4.hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgsuche.visible:= true;
+end;
+
+procedure TForm4.hgherzhide(Sender: TObject);
+begin
+   hgherz.Visible:=false;
+end;
+
+procedure TForm4.hgherzshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgherz.Visible:=true;
+end;
+
+procedure TForm4.hghomehide(Sender: TObject);
+begin
+  hghome.Visible:=false;
+end;
+
+procedure TForm4.Image1Click(Sender: TObject);
 begin
   application.Terminate;
-end;
-
-procedure TForm4.Isuche(Sender: TObject);
-begin
-  recsuche.Visible := true;
 end;
 
 end.
