@@ -41,7 +41,7 @@ uses Unit2;
 procedure TForm3.Button1Click(Sender: TObject);
 begin
     begin
-      if (Edit2.Text = 'admin') and (Edit1.Text='admin') then
+      if (Edit2.Text = 'guru') and (Edit1.Text='nomnomnutzer') then
 
          begin
             edit1.Visible:= false;
@@ -66,6 +66,7 @@ end;
 procedure TForm3.Edit2click(Sender: TObject);
 begin
   Edit2.Text:= '';
+  Edit2.Password:= true;
 end;
 
 procedure TForm3.Image2Click(Sender: TObject);
