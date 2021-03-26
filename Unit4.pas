@@ -24,6 +24,10 @@ type
     hgherz: TImage;
     hgkonto: TImage;
     Image1: TImage;
+    überschrift: TImage;
+    btfrühstück: TImage;
+    Image2: TImage;
+    logo: TImage;
     procedure btkühlschrankClick(Sender: TObject);
     procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure hghomehide(Sender: TObject);
