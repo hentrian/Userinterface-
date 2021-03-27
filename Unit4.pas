@@ -4,7 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects;
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  Unit6;
 
 type
   TForm4 = class(TForm)
@@ -42,6 +43,7 @@ type
     procedure hgsuchehide(Sender: TObject);
     procedure hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure Image1Click(Sender: TObject);
+    procedure btfrühstückClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -56,6 +58,12 @@ implementation
 {$R *.fmx}
 
 uses Unit2;
+
+procedure TForm4.btfrühstückClick(Sender: TObject);
+begin
+  Form4.Hide;
+  mainform.show;
+end;
 
 procedure TForm4.btkühlschrankClick(Sender: TObject);
 begin
