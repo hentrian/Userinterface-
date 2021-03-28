@@ -26,9 +26,8 @@ type
     hgkonto: TImage;
     Image1: TImage;
     überschrift: TImage;
-    btfrühstück: TImage;
-    Image2: TImage;
-    logo: TImage;
+    Imglayout: TImage;
+    wbtnfrühstück: TImage;
     procedure btkühlschrankClick(Sender: TObject);
     procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure hghomehide(Sender: TObject);
@@ -44,6 +43,7 @@ type
     procedure hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure Image1Click(Sender: TObject);
     procedure btfrühstückClick(Sender: TObject);
+    procedure wbtnfrühstückClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -134,6 +134,12 @@ end;
 procedure TForm4.Image1Click(Sender: TObject);
 begin
   application.Terminate;
+end;
+
+procedure TForm4.wbtnfrühstückClick(Sender: TObject);
+begin
+  Form4.Hide;
+  Mainform.Show;
 end;
 
 end.

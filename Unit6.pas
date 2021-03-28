@@ -4,7 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects;
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.Edit, FMX.StdCtrls;
 
 type
   TMainform = class(TForm)
@@ -24,6 +25,9 @@ type
     hgherz: TImage;
     hgkonto: TImage;
     Image1: TImage;
+    ZutatenEIngabe: TEdit;
+    Zutatenliste: TLabel;
+    Image2: TImage;
     procedure btkühlschrankClick(Sender: TObject);
     procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure hghomehide(Sender: TObject);
@@ -38,6 +42,7 @@ type
     procedure hgsuchehide(Sender: TObject);
     procedure hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure Image1Click(Sender: TObject);
+    procedure Zutateneingabeclick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -55,8 +60,8 @@ uses Unit2;
 
 procedure TMainform.btkühlschrankClick(Sender: TObject);
 begin
-Mainform.Hide;
-form2.Show;
+  Mainform.Hide;
+  form2.Show;
 end;
 
 procedure TMainform.hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
@@ -122,6 +127,11 @@ end;
 procedure TMainform.Image1Click(Sender: TObject);
 begin
   application.Terminate;
+end;
+
+procedure TMainform.Zutateneingabeclick(Sender: TObject);
+begin
+  Zutateneingabe.Text:= '';
 end;
 
 end.

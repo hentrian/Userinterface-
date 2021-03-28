@@ -17,12 +17,16 @@ type
     Image1: TImage;
     Edit1: TEdit;
     Edit2: TEdit;
-    Button1: TButton;
+    btnauge: TImage;
+    Image5: TImage;
+    Label3: TLabel;
     procedure Image2Click(Sender: TObject);
     procedure Image4Click(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
     procedure Edit1click(Sender: TObject);
     procedure Edit2click(Sender: TObject);
+    procedure passwordhide(Sender: TObject);
+    procedure passwordshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure Image5Click(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -37,26 +41,6 @@ implementation
 {$R *.fmx}
 
 uses Unit2;
-
-procedure TForm3.Button1Click(Sender: TObject);
-begin
-    begin
-      if (Edit2.Text = 'guru') and (Edit1.Text='nomnomnutzer') then
-
-         begin
-            edit1.Visible:= false;
-            edit2.Visible:= false;
-            Image3.Visible := false;
-            Image4.Visible := true;
-            Image1.Visible:= false;
-            Label1.Visible:= false;
-            Label2.Visible:=true;
-            Button1.Visible:= false;
-         End
-      else
-        showMessage ('Dein Benutzername oder Passwort sind falsch!');
-    end;
-end;
 
 procedure TForm3.Edit1click(Sender: TObject);
 begin
@@ -78,6 +62,36 @@ procedure TForm3.Image4Click(Sender: TObject);
 begin
   Form3.Hide ;
   Form2.Show;     //Übergabe
+end;
+
+procedure TForm3.Image5Click(Sender: TObject);
+begin
+       if (Edit2.Text = 'guru') and (Edit1.Text='nomnomnutzer') then
+         begin
+            edit1.Visible:= false;
+            edit2.Visible:= false;
+            Image3.Visible := false;
+            Image4.Visible := true;
+            Image1.Visible:= false;
+            btnauge.Visible:= false;
+            Label1.Visible:= false;
+            Label2.Visible:=true;
+            Label3.Visible:=false;
+            Image5.Visible:= false;
+         End
+      else
+        showMessage ('Dein Benutzername oder Passwort sind falsch!');
+end;
+
+procedure TForm3.passwordhide(Sender: TObject);
+begin
+  Edit2.Password:= true;
+end;
+
+procedure TForm3.passwordshow(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  Edit2.Password := false;
 end;
 
 end.
