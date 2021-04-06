@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Edit,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, Unit5, Unit7;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, Unit5;
 
 type
   TForm3 = class(TForm)
@@ -50,7 +50,7 @@ implementation
 
 {$R *.fmx}
 
-uses Unit2;
+uses Unit2, Unit7;
 
 procedure TForm3.edtusernameClick(Sender: TObject);
 begin
@@ -103,8 +103,28 @@ begin
 end;
 
 procedure TForm3.btloginClick(Sender: TObject);
+var
+  TxtProfile: TextFile;
+  sData:String;
 begin
-       if (edtpassword.Text = 'guru') and (edtusername.Text='nomnomnutzer') then
+  if (fileexists(edtusername.Text + '.txt')) then
+    begin
+      assignFile (txtProfile, edtusername.Text +'.txt');
+      Reset (txtProfile);
+      ReadLn (txtProfile, sData);
+      ReadLn (txtProfile, sData);
+        if sData<> edtpassword.text then
+          begin
+            ShowMessage ('Benutzername oder Passwort ist falsch. Bitte versuchen Sie es erneut!');
+            Exit;
+          end;
+        Form3.Hide;
+        Form5.Show;
+
+
+      CloseFile (txtProfile)
+
+      {if (edtpassword.Text = arrUser[4]) and (edtusername.Text= arrUser[1]) then
          begin
             edtusername.text:= 'Benutzername';
             edtpassword.Password:= false;
@@ -113,7 +133,11 @@ begin
             Form5.show;
          End
       else
-        showMessage ('Dein Benutzername oder Passwort sind falsch!');
+        showMessage ('Dein Benutzername oder Passwort sind falsch!')    }
+    end
+
+  else
+    showMessage('Für diesen Benutzernamen existiert noch kein Konto!')
 end;
 
 procedure TForm3.passwordhide(Sender: TObject);
