@@ -5,28 +5,38 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Edit,
-  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects;
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects, Unit5, Unit7;
 
 type
   TForm3 = class(TForm)
-    Image2: TImage;
-    Image3: TImage;
-    Image4: TImage;
-    Label1: TLabel;
-    Label2: TLabel;
-    Image1: TImage;
-    Edit1: TEdit;
-    Edit2: TEdit;
+    btoff: TImage;
+    imglog: TImage;
+    lbllogin: TLabel;
+    hgloginform: TImage;
+    edtusername: TEdit;
+    edtpassword: TEdit;
     btnauge: TImage;
-    Image5: TImage;
-    Label3: TLabel;
-    procedure Image2Click(Sender: TObject);
+    btlogin: TImage;
+    lbleinloggen: TLabel;
+    hgkontoanlegen: TImage;
+    lbpassword: TLabel;
+    hgpassword: TImage;
+    lblkontoanlegen: TLabel;
+    btkontoanlegen: TImage;
+    btpassword: TImage;
+    procedure btoffClick(Sender: TObject);
     procedure Image4Click(Sender: TObject);
-    procedure Edit1click(Sender: TObject);
-    procedure Edit2click(Sender: TObject);
+    procedure edtusernameClick(Sender: TObject);
+    procedure edtpasswordClick(Sender: TObject);
     procedure passwordhide(Sender: TObject);
     procedure passwordshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
-    procedure Image5Click(Sender: TObject);
+    procedure btloginClick(Sender: TObject);
+    procedure hgpasswordhide(Sender: TObject);
+    procedure hgpasswordshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgkontoanlegenhide(Sender: TObject);
+    procedure hgkontoanlegenshow(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+    procedure btkontoanlegenClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -42,20 +52,42 @@ implementation
 
 uses Unit2;
 
-procedure TForm3.Edit1click(Sender: TObject);
+procedure TForm3.edtusernameClick(Sender: TObject);
 begin
-  Edit1.Text:= '';
+  edtusername.Text:= '';
 end;
 
-procedure TForm3.Edit2click(Sender: TObject);
+procedure TForm3.edtpasswordClick(Sender: TObject);
 begin
-  Edit2.Text:= '';
-  Edit2.Password:= true;
+  edtpassword.Text:= '';
+  edtpassword.Password:= true;
 end;
 
-procedure TForm3.Image2Click(Sender: TObject);
+procedure TForm3.btoffClick(Sender: TObject);
 begin
   application.Terminate;      //Schlieﬂt Form1
+end;
+
+procedure TForm3.hgkontoanlegenhide(Sender: TObject);
+begin
+  hgkontoanlegen.Visible:=false;
+end;
+
+procedure TForm3.hgkontoanlegenshow(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  hgkontoanlegen.Visible:=true;
+end;
+
+procedure TForm3.hgpasswordhide(Sender: TObject);
+begin
+  hgpassword.Visible:= false;
+end;
+
+procedure TForm3.hgpasswordshow(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  hgpassword.Visible:= true;
 end;
 
 procedure TForm3.Image4Click(Sender: TObject);
@@ -64,20 +96,21 @@ begin
   Form2.Show;     //‹bergabe
 end;
 
-procedure TForm3.Image5Click(Sender: TObject);
+procedure TForm3.btkontoanlegenClick(Sender: TObject);
 begin
-       if (Edit2.Text = 'guru') and (Edit1.Text='nomnomnutzer') then
+  Form3.Hide;
+  Form7.show;
+end;
+
+procedure TForm3.btloginClick(Sender: TObject);
+begin
+       if (edtpassword.Text = 'guru') and (edtusername.Text='nomnomnutzer') then
          begin
-            edit1.Visible:= false;
-            edit2.Visible:= false;
-            Image3.Visible := false;
-            Image4.Visible := true;
-            Image1.Visible:= false;
-            btnauge.Visible:= false;
-            Label1.Visible:= false;
-            Label2.Visible:=true;
-            Label3.Visible:=false;
-            Image5.Visible:= false;
+            edtusername.text:= 'Benutzername';
+            edtpassword.Password:= false;
+            edtpassword.Text:= 'Passwort';
+            Form3.Hide;
+            Form5.show;
          End
       else
         showMessage ('Dein Benutzername oder Passwort sind falsch!');
@@ -85,13 +118,13 @@ end;
 
 procedure TForm3.passwordhide(Sender: TObject);
 begin
-  Edit2.Password:= true;
+  edtpassword.Password:= true;
 end;
 
 procedure TForm3.passwordshow(Sender: TObject; Shift: TShiftState; X,
   Y: Single);
 begin
-  Edit2.Password := false;
+  edtpassword.Password := false;
 end;
 
 end.

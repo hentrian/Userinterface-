@@ -131,6 +131,8 @@ end;
 
 procedure TMainform.Zutateneingabeclick(Sender: TObject);
 begin
+  zutateneingabe.TextSettings.Font.Family := 'Cantata One';
+  zutateneingabe.TextSettings.Font.Size:= 20;
   Zutateneingabe.Text:= '';
 end;
 

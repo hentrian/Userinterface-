@@ -10,10 +10,10 @@ uses
 
 type
   TForm1 = class(TForm)
-    Image1: TImage;
-    Image2: TImage;
+    btstart: TImage;
+    btoff: TImage;
     procedure Image2Click(Sender: TObject);
-    procedure Image1Click(Sender: TObject);
+    procedure btstartClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -31,7 +31,7 @@ uses Unit2, Unit3;
 
 
 
-procedure TForm1.Image1Click(Sender: TObject);
+procedure TForm1.btstartClick(Sender: TObject);
 begin
   Form1.Hide;
   Form3.Show;

@@ -5,12 +5,12 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  Unit6;
+  Unit6, Unit3;
 
 type
   TForm4 = class(TForm)
-    Rectangle1: TRectangle;
-    Rectangle2: TRectangle;
+    bhgbigwhitemarmor: TRectangle;
+    bhgbigblackmarmor: TRectangle;
     Brush1: TBrushObject;
     btsuche: TImage;
     btkühlschrank: TImage;
@@ -24,11 +24,12 @@ type
     hgidee: TImage;
     hgherz: TImage;
     hgkonto: TImage;
-    Image1: TImage;
+    bboff: TImage;
     überschrift: TImage;
     Imglayout: TImage;
     wbtnfrühstück: TImage;
-    procedure btkühlschrankClick(Sender: TObject);
+    hglogout: TImage;
+    btlogout: TImage;
     procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure hghomehide(Sender: TObject);
     procedure hgherzhide(Sender: TObject);
@@ -41,9 +42,13 @@ type
     procedure hgkshide(Sender: TObject);
     procedure hgsuchehide(Sender: TObject);
     procedure hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
-    procedure Image1Click(Sender: TObject);
+    procedure bboffClick(Sender: TObject);
     procedure btfrühstückClick(Sender: TObject);
     procedure wbtnfrühstückClick(Sender: TObject);
+    procedure bthomeClick(Sender: TObject);
+    procedure btlogoutClick(Sender: TObject);
+    procedure hglogouthide(Sender: TObject);
+    procedure hglogoutshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
   private
     { Private-Deklarationen }
   public
@@ -63,12 +68,6 @@ procedure TForm4.btfrühstückClick(Sender: TObject);
 begin
   Form4.Hide;
   mainform.show;
-end;
-
-procedure TForm4.btkühlschrankClick(Sender: TObject);
-begin
-form4.Hide;
-form2.Show;
 end;
 
 procedure TForm4.hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
@@ -106,6 +105,17 @@ begin
   hgkühlschrank.Visible:=true;
 end;
 
+procedure TForm4.hglogouthide(Sender: TObject);
+begin
+  hglogout.Visible:= false;
+end;
+
+procedure TForm4.hglogoutshow(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  hglogout.Visible:=true;
+end;
+
 procedure TForm4.hgsuchehide(Sender: TObject);
 begin
   hgsuche.Visible:= false
@@ -131,7 +141,19 @@ begin
   hghome.Visible:=false;
 end;
 
-procedure TForm4.Image1Click(Sender: TObject);
+procedure TForm4.bthomeClick(Sender: TObject);
+begin
+  Form4.Hide;
+  Form2.Show;
+end;
+
+procedure TForm4.btlogoutClick(Sender: TObject);
+begin
+  Form4.Hide;
+  Form3.show;
+end;
+
+procedure TForm4.bboffClick(Sender: TObject);
 begin
   application.Terminate;
 end;
