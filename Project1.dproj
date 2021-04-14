@@ -107,16 +107,16 @@
             <Form>Form4</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="Unit6.pas">
-            <Form>Mainform</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <DCCReference Include="Unit5.pas">
             <Form>Form5</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="Unit7.pas">
             <Form>Form7</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Unit8.pas">
+            <Form>form8</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

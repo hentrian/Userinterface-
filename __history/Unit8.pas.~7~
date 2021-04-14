@@ -1,0 +1,405 @@
+unit unit8;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.Edit, FMX.StdCtrls;
+
+type
+  Tform8 = class(TForm)
+    Rectangle1: TRectangle;
+    Rectangle2: TRectangle;
+    Brush1: TBrushObject;
+    btsuche: TImage;
+    btkühlschrank: TImage;
+    btidee: TImage;
+    btherz: TImage;
+    btKonto: TImage;
+    bthome: TImage;
+    hghome: TImage;
+    hgsuche: TImage;
+    hgkühlschrank: TImage;
+    hgidee: TImage;
+    hgherz: TImage;
+    hgkonto: TImage;
+    btncloseapplication: TImage;
+    edtzutateneingabe: TEdit;
+    Zutatenliste: TLabel;
+    imgbenutzeroberfläche: TImage;
+    hglogout: TImage;
+    btlogout: TImage;
+    btnhinzufügen: TImage;
+    lblZutat1: TLabel;
+    btnpapprio: TImage;
+    imgshowpapprio1: TImage;
+    imgshowpapprio2: TImage;
+    imgshowpapprio3: TImage;
+    imgshowpapprio4: TImage;
+    imgshowpapprio5: TImage;
+    imgshowpapprio6: TImage;
+    imgshowpapprio7: TImage;
+    imgshowpapprio8: TImage;
+    imgshowpapprio9: TImage;
+    lblZutat2: TLabel;
+    lblZutat3: TLabel;
+    lblZutat4: TLabel;
+    lblZutat5: TLabel;
+    lblZutat6: TLabel;
+    lblZutat7: TLabel;
+    lblZutat8: TLabel;
+    lblZutat9: TLabel;
+    btnpapprio1: TImage;
+    btnpapprio2: TImage;
+    btnpapprio3: TImage;
+    btnpapprio4: TImage;
+    btnpapprio5: TImage;
+    btnpapprio6: TImage;
+    btnpapprio7: TImage;
+    btnpapprio8: TImage;
+    btnpapprio9: TImage;
+    btnlabellöschen: TImage;
+    procedure btkühlschrankClick(Sender: TObject);
+    procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hghomehide(Sender: TObject);
+    procedure hgherzhide(Sender: TObject);
+    procedure hgherzshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgideeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgideehide(Sender: TObject);
+    procedure hgkontohide(Sender: TObject);
+    procedure hgkontoshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgksshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgkshide(Sender: TObject);
+    procedure hgsuchehide(Sender: TObject);
+    procedure hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure btncloseapplicationClick(Sender: TObject);
+    procedure edtzutateneingabeClick(Sender: TObject);
+    procedure btlogouthide(Sender: TObject);
+    procedure btlogoutshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure btlogoutClick(Sender: TObject);
+    procedure btnhinzufügenClick(Sender: TObject);
+    procedure btnpapprio1Click(Sender: TObject);
+    procedure btnpapprio2Click(Sender: TObject);
+    procedure btnpapprio3Click(Sender: TObject);
+    procedure btnpapprio4Click(Sender: TObject);
+    procedure btnpapprio5Click(Sender: TObject);
+    procedure btnpapprio6Click(Sender: TObject);
+    procedure btnpapprio7Click(Sender: TObject);
+    procedure btnpapprio8Click(Sender: TObject);
+    procedure btnpapprio9Click(Sender: TObject);
+    procedure imgpapprio1hide(Sender: TObject);
+    procedure imgpapprio1show(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+    procedure imgpapprio2hide(Sender: TObject);
+    procedure imgpapprio3hide(Sender: TObject);
+    procedure imgpapprio4hide(Sender: TObject);
+    procedure imgpapprio5hide(Sender: TObject);
+    procedure imgpapprio6hide(Sender: TObject);
+    procedure imgpapprio7hide(Sender: TObject);
+    procedure imgpapprio8hide(Sender: TObject);
+    procedure imgpapprio9hide(Sender: TObject);
+    procedure imgpapprio9show(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+    procedure imgpapprio8show(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+    procedure imgpapprio7show(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+    procedure imgpapprio6show(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+    procedure imgpapprio5show(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+    procedure imgpapprio4show(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+    procedure imgpapprio3show(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+    procedure imgpapprio2show(Sender: TObject; Shift: TShiftState; X,
+      Y: Single);
+  private
+    { Private-Deklarationen }
+  public
+    { Public-Deklarationen }
+  end;
+
+var
+  form8: Tform8;
+  i: integer = 0;
+
+implementation
+
+{$R *.fmx}
+
+uses Unit2, Unit1;
+
+procedure Tform8.btkühlschrankClick(Sender: TObject);
+begin
+  Form8.Hide;
+  form2.Show;
+end;
+
+procedure Tform8.hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hghome.Visible:= true;
+end;
+
+procedure Tform8.hgideehide(Sender: TObject);
+begin
+  hgidee.Visible:= false;
+end;
+
+procedure Tform8.hgideeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgidee.Visible:= true;
+end;
+
+procedure Tform8.hgkontohide(Sender: TObject);
+begin
+  hgkonto.Visible:=false;
+end;
+
+procedure Tform8.hgkontoshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgkonto.Visible:=true;
+end;
+
+procedure Tform8.hgkshide(Sender: TObject);
+begin
+  hgkühlschrank.Visible:=false;
+end;
+
+procedure Tform8.hgksshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgkühlschrank.Visible:=true;
+end;
+
+procedure Tform8.hgsuchehide(Sender: TObject);
+begin
+  hgsuche.Visible:= false
+end;
+
+procedure Tform8.hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgsuche.visible:= true;
+end;
+
+procedure Tform8.imgpapprio1hide(Sender: TObject);
+begin
+  imgshowpapprio1.visible := false;
+end;
+
+procedure Tform8.imgpapprio1show(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  imgshowpapprio1.visible := true;
+end;
+
+procedure Tform8.imgpapprio2hide(Sender: TObject);
+begin
+  imgshowpapprio2.visible := false;
+end;
+
+procedure Tform8.imgpapprio2show(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  imgshowpapprio2.visible := true;
+end;
+
+procedure Tform8.imgpapprio3hide(Sender: TObject);
+begin
+  imgshowpapprio3.visible := false;
+end;
+
+procedure Tform8.imgpapprio3show(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  imgshowpapprio3.visible := true;
+end;
+
+procedure Tform8.imgpapprio4hide(Sender: TObject);
+begin
+  imgshowpapprio4.visible := false;
+end;
+
+procedure Tform8.imgpapprio4show(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  imgshowpapprio4.visible := true;
+end;
+
+procedure Tform8.imgpapprio5hide(Sender: TObject);
+begin
+  imgshowpapprio5.visible := false;
+end;
+
+procedure Tform8.imgpapprio5show(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  imgshowpapprio5.visible := true;
+end;
+
+procedure Tform8.imgpapprio6hide(Sender: TObject);
+begin
+  imgshowpapprio6.visible := false;
+end;
+
+procedure Tform8.imgpapprio6show(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  imgshowpapprio6.visible := true;
+end;
+
+procedure Tform8.imgpapprio7hide(Sender: TObject);
+begin
+  imgshowpapprio7.visible := false;
+end;
+
+procedure Tform8.imgpapprio7show(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  imgshowpapprio7.visible := true;
+end;
+
+procedure Tform8.imgpapprio8hide(Sender: TObject);
+begin
+  imgshowpapprio8.visible := false;
+end;
+
+procedure Tform8.imgpapprio8show(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  imgshowpapprio8.visible := true;
+end;
+
+procedure Tform8.imgpapprio9hide(Sender: TObject);
+begin
+  imgshowpapprio9.visible := false;
+end;
+
+procedure Tform8.imgpapprio9show(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  imgshowpapprio9.visible := true;
+end;
+
+procedure Tform8.btlogoutClick(Sender: TObject);
+begin
+  Form8.Hide;
+  Form1.show;
+end;
+
+procedure Tform8.btlogouthide(Sender: TObject);
+begin
+  hglogout.Visible:= false;
+end;
+
+procedure Tform8.btlogoutshow(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  hglogout.Visible:= true;
+end;
+
+procedure Tform8.hgherzhide(Sender: TObject);
+begin
+   hgherz.Visible:=false;
+end;
+
+procedure Tform8.hgherzshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgherz.Visible:=true;
+end;
+
+procedure Tform8.hghomehide(Sender: TObject);
+begin
+  hghome.Visible:=false;
+end;
+
+procedure Tform8.btncloseapplicationClick(Sender: TObject);
+begin
+  application.Terminate;
+end;
+
+procedure Tform8.btnhinzufügenClick(Sender: TObject);
+
+begin
+  i:= i+1;
+  if i=1 then
+    lblZutat1.Text:= edtzutateneingabe.Text;
+  if i=2 then
+    lblZutat2.Text:= edtzutateneingabe.Text;
+  if i=3 then
+    lblZutat3.Text:= edtzutateneingabe.Text;
+  if i=4 then
+    lblZutat4.Text:= edtzutateneingabe.Text;
+  if i=5 then
+    lblZutat5.Text:= edtzutateneingabe.Text;
+  if i=6 then
+    lblZutat6.Text:= edtzutateneingabe.Text;
+  if i=7 then
+    lblZutat7.Text:= edtzutateneingabe.Text;
+  if i=8 then
+    lblZutat8.Text:= edtzutateneingabe.Text;
+  if i=9 then
+    lblZutat9.Text:= edtzutateneingabe.Text;
+end;
+procedure Tform8.btnpapprio1Click(Sender: TObject);
+begin
+  btnpapprio.Visible:= true;
+end;
+
+procedure Tform8.btnpapprio2Click(Sender: TObject);
+begin
+  btnpapprio.Visible:= true;
+end;
+
+procedure Tform8.btnpapprio3Click(Sender: TObject);
+begin
+  btnpapprio.Visible:= true;
+end;
+
+procedure Tform8.btnpapprio4Click(Sender: TObject);
+begin
+  btnpapprio.Visible:= true;
+end;
+
+procedure Tform8.btnpapprio5Click(Sender: TObject);
+begin
+  btnpapprio.Visible:= true;
+end;
+
+procedure Tform8.btnpapprio6Click(Sender: TObject);
+begin
+  btnpapprio.Visible:= true;
+end;
+
+procedure Tform8.btnpapprio7Click(Sender: TObject);
+begin
+  btnpapprio.Visible:= true;
+end;
+
+procedure Tform8.btnpapprio8Click(Sender: TObject);
+begin
+  btnpapprio.Visible:= true;
+end;
+
+procedure Tform8.btnpapprio9Click(Sender: TObject);
+begin
+  btnpapprio.Visible:= true;
+end;
+
+{zuaten hinzufügen mit einem Label
+var
+  Merke: string;
+begin
+  Merke:= edtzutateneingabe.Text;
+  lblzutatenliste.text:= lblzutatenliste.Text + #13#10+ merke ;      //#13#10 = Zeilenumsprung im Label
+  edtzutateneingabe.Text:= '';
+end;     }
+
+procedure Tform8.edtzutateneingabeClick(Sender: TObject);
+begin
+  edtzutateneingabe.TextSettings.Font.Family := 'Cantata One';
+  edtzutateneingabe.TextSettings.Font.Size:= 20;
+  edtZutateneingabe.Text:= '';
+end;
+
+end.

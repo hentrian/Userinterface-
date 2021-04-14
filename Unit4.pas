@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  Unit6, Unit3;
+  Unit8, Unit3;
 
 type
   TForm4 = class(TForm)
@@ -67,7 +67,7 @@ uses Unit2;
 procedure TForm4.btfrühstückClick(Sender: TObject);
 begin
   Form4.Hide;
-  mainform.show;
+  form8.show;
 end;
 
 procedure TForm4.hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
@@ -161,7 +161,7 @@ end;
 procedure TForm4.wbtnfrühstückClick(Sender: TObject);
 begin
   Form4.Hide;
-  Mainform.Show;
+  Form8.Show;
 end;
 
 end.
