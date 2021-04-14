@@ -26,7 +26,6 @@ type
     btpassword: TImage;
     procedure btoffClick(Sender: TObject);
     procedure Image4Click(Sender: TObject);
-    procedure edtusernameClick(Sender: TObject);
     procedure edtpasswordClick(Sender: TObject);
     procedure passwordhide(Sender: TObject);
     procedure passwordshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
@@ -52,14 +51,8 @@ implementation
 
 uses Unit2, Unit7;
 
-procedure TForm3.edtusernameClick(Sender: TObject);
-begin
-  edtusername.Text:= '';
-end;
-
 procedure TForm3.edtpasswordClick(Sender: TObject);
 begin
-  edtpassword.Text:= '';
   edtpassword.Password:= true;
 end;
 
@@ -120,8 +113,9 @@ begin
           end;
         Form3.Hide;
         Form5.Show;
-
-
+        edtusername.Text:= '';
+        edtpassword.Text:='';
+        edtpassword.Password:=false;
       CloseFile (txtProfile)
 
       {if (edtpassword.Text = arrUser[4]) and (edtusername.Text= arrUser[1]) then

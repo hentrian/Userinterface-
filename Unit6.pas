@@ -25,9 +25,13 @@ type
     hgherz: TImage;
     hgkonto: TImage;
     Image1: TImage;
-    ZutatenEIngabe: TEdit;
+    edtzutateneingabe: TEdit;
     Zutatenliste: TLabel;
     Image2: TImage;
+    hglogout: TImage;
+    btlogout: TImage;
+    Image3: TImage;
+    lblZutatenliste: TLabel;
     procedure btkühlschrankClick(Sender: TObject);
     procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure hghomehide(Sender: TObject);
@@ -42,7 +46,11 @@ type
     procedure hgsuchehide(Sender: TObject);
     procedure hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure Image1Click(Sender: TObject);
-    procedure Zutateneingabeclick(Sender: TObject);
+    procedure edtzutateneingabeClick(Sender: TObject);
+    procedure btlogouthide(Sender: TObject);
+    procedure btlogoutshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure btlogoutClick(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -56,7 +64,8 @@ implementation
 
 {$R *.fmx}
 
-uses Unit2;
+uses Unit2, Unit1;
+
 
 procedure TMainform.btkühlschrankClick(Sender: TObject);
 begin
@@ -109,6 +118,23 @@ begin
   hgsuche.visible:= true;
 end;
 
+procedure TMainform.btlogoutClick(Sender: TObject);
+begin
+  Mainform.Hide;
+  Form1.show;
+end;
+
+procedure TMainform.btlogouthide(Sender: TObject);
+begin
+  hglogout.Visible:= false;
+end;
+
+procedure TMainform.btlogoutshow(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  hglogout.Visible:= true;
+end;
+
 procedure TMainform.hgherzhide(Sender: TObject);
 begin
    hgherz.Visible:=false;
@@ -129,11 +155,20 @@ begin
   application.Terminate;
 end;
 
-procedure TMainform.Zutateneingabeclick(Sender: TObject);
+procedure TMainform.Image3Click(Sender: TObject);
+var
+  Merke: string;
 begin
-  zutateneingabe.TextSettings.Font.Family := 'Cantata One';
-  zutateneingabe.TextSettings.Font.Size:= 20;
-  Zutateneingabe.Text:= '';
+  Merke:= edtzutateneingabe.Text;
+  lblzutatenliste.text:= lblzutatenliste.Text + #13#10+ merke ;      //#13#10 = Zeilenumsprung im Label
+  edtzutateneingabe.Text:= '';
+end;
+
+procedure TMainform.edtzutateneingabeClick(Sender: TObject);
+begin
+  edtzutateneingabe.TextSettings.Font.Family := 'Cantata One';
+  edtzutateneingabe.TextSettings.Font.Size:= 20;
+  edtZutateneingabe.Text:= '';
 end;
 
 end.

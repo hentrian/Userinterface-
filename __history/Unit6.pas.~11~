@@ -1,0 +1,174 @@
+unit unit6;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.Edit, FMX.StdCtrls;
+
+type
+  TMainform = class(TForm)
+    Rectangle1: TRectangle;
+    Rectangle2: TRectangle;
+    Brush1: TBrushObject;
+    btsuche: TImage;
+    btkühlschrank: TImage;
+    btidee: TImage;
+    btherz: TImage;
+    btKonto: TImage;
+    bthome: TImage;
+    hghome: TImage;
+    hgsuche: TImage;
+    hgkühlschrank: TImage;
+    hgidee: TImage;
+    hgherz: TImage;
+    hgkonto: TImage;
+    Image1: TImage;
+    edtzutateneingabe: TEdit;
+    Zutatenliste: TLabel;
+    Image2: TImage;
+    hglogout: TImage;
+    btlogout: TImage;
+    Image3: TImage;
+    lblZutatenliste: TLabel;
+    procedure btkühlschrankClick(Sender: TObject);
+    procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hghomehide(Sender: TObject);
+    procedure hgherzhide(Sender: TObject);
+    procedure hgherzshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgideeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgideehide(Sender: TObject);
+    procedure hgkontohide(Sender: TObject);
+    procedure hgkontoshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgksshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure hgkshide(Sender: TObject);
+    procedure hgsuchehide(Sender: TObject);
+    procedure hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure Image1Click(Sender: TObject);
+    procedure edtzutateneingabeClick(Sender: TObject);
+    procedure btlogouthide(Sender: TObject);
+    procedure btlogoutshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure btlogoutClick(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+  private
+    { Private-Deklarationen }
+  public
+    { Public-Deklarationen }
+  end;
+
+var
+  Mainform: TMainform;
+
+implementation
+
+{$R *.fmx}
+
+uses Unit2, Unit1;
+
+
+procedure TMainform.btkühlschrankClick(Sender: TObject);
+begin
+  Mainform.Hide;
+  form2.Show;
+end;
+
+procedure TMainform.hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hghome.Visible:= true;
+end;
+
+procedure TMainform.hgideehide(Sender: TObject);
+begin
+  hgidee.Visible:= false;
+end;
+
+procedure TMainform.hgideeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgidee.Visible:= true;
+end;
+
+procedure TMainform.hgkontohide(Sender: TObject);
+begin
+  hgkonto.Visible:=false;
+end;
+
+procedure TMainform.hgkontoshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgkonto.Visible:=true;
+end;
+
+procedure TMainform.hgkshide(Sender: TObject);
+begin
+  hgkühlschrank.Visible:=false;
+end;
+
+procedure TMainform.hgksshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgkühlschrank.Visible:=true;
+end;
+
+procedure TMainform.hgsuchehide(Sender: TObject);
+begin
+  hgsuche.Visible:= false
+end;
+
+procedure TMainform.hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgsuche.visible:= true;
+end;
+
+procedure TMainform.btlogoutClick(Sender: TObject);
+begin
+  Mainform.Hide;
+  Form1.show;
+end;
+
+procedure TMainform.btlogouthide(Sender: TObject);
+begin
+  hglogout.Visible:= false;
+end;
+
+procedure TMainform.btlogoutshow(Sender: TObject; Shift: TShiftState; X,
+  Y: Single);
+begin
+  hglogout.Visible:= true;
+end;
+
+procedure TMainform.hgherzhide(Sender: TObject);
+begin
+   hgherz.Visible:=false;
+end;
+
+procedure TMainform.hgherzshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+begin
+  hgherz.Visible:=true;
+end;
+
+procedure TMainform.hghomehide(Sender: TObject);
+begin
+  hghome.Visible:=false;
+end;
+
+procedure TMainform.Image1Click(Sender: TObject);
+begin
+  application.Terminate;
+end;
+
+procedure TMainform.Image3Click(Sender: TObject);
+var
+  Merke: string;
+begin
+  Merke:= edtzutateneingabe.Text;
+  lblzutatenliste.text:= lblzutatenliste.Text + #13#10+ merke ;
+  edtzutateneingabe:='';
+end;
+
+procedure TMainform.edtzutateneingabeClick(Sender: TObject);
+begin
+  edtzutateneingabe.TextSettings.Font.Family := 'Cantata One';
+  edtzutateneingabe.TextSettings.Font.Size:= 20;
+  edtZutateneingabe.Text:= '';
+end;
+
+end.
