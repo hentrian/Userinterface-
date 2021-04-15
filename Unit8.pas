@@ -71,6 +71,7 @@ type
     hgclickpapprio9: TImage;
     btnprioup: TImage;
     btnpriodown: TImage;
+    Label1: TLabel;
     procedure btkühlschrankClick(Sender: TObject);
     procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure hghomehide(Sender: TObject);
@@ -137,10 +138,11 @@ type
 
 var
   form8: Tform8;
-  i: integer = 0;
+  i: integer = 1;
   edtvar: integer = 0;
   merke: string = '';
-
+  varclick: integer =0; 
+  test:boolean; 
 implementation
 
 {$R *.fmx}
@@ -206,7 +208,10 @@ end;
 procedure Tform8.imgpapprio1show(Sender: TObject; Shift: TShiftState; X,
   Y: Single);
 begin
-  imgshowpapprio1.visible := true;
+  if lblzutat1.Text<>'' then
+    begin
+      imgshowpapprio1.visible := true;
+    end;
 end;
 
 procedure Tform8.imgpapprio2hide(Sender: TObject);
@@ -217,7 +222,10 @@ end;
 procedure Tform8.imgpapprio2show(Sender: TObject; Shift: TShiftState; X,
   Y: Single);
 begin
-  imgshowpapprio2.visible := true;
+  if lblzutat2.Text <> '' then
+  begin
+    imgshowpapprio2.visible := true;
+  end;
 end;
 
 procedure Tform8.imgpapprio3hide(Sender: TObject);
@@ -228,7 +236,10 @@ end;
 procedure Tform8.imgpapprio3show(Sender: TObject; Shift: TShiftState; X,
   Y: Single);
 begin
-  imgshowpapprio3.visible := true;
+  if lblzutat3.Text <>'' then
+    begin
+      imgshowpapprio3.visible := true;
+    end;
 end;
 
 procedure Tform8.imgpapprio4hide(Sender: TObject);
@@ -239,7 +250,10 @@ end;
 procedure Tform8.imgpapprio4show(Sender: TObject; Shift: TShiftState; X,
   Y: Single);
 begin
-  imgshowpapprio4.visible := true;
+  if lblzutat4.Text<>'' then
+    begin
+      imgshowpapprio4.visible := true;
+    end;
 end;
 
 procedure Tform8.imgpapprio5hide(Sender: TObject);
@@ -249,7 +263,10 @@ end;
 
 procedure Tform8.imgpapprio5show(Sender: TObject; Shift: TShiftState; X,Y: Single);
 begin
-  imgshowpapprio5.visible := true;
+  if lblzutat5.Text<>'' then
+    begin
+      imgshowpapprio5.visible := true;
+    end;
 end;
 
 procedure Tform8.imgpapprio6hide(Sender: TObject);
@@ -259,7 +276,10 @@ end;
 
 procedure Tform8.imgpapprio6show(Sender: TObject; Shift: TShiftState; X,Y: Single);
 begin
-  imgshowpapprio6.visible := true;
+  if lblzutat6.Text<>'' then
+    begin
+      imgshowpapprio6.visible := true;
+    end;
 end;
 
 procedure Tform8.imgpapprio7hide(Sender: TObject);
@@ -269,7 +289,10 @@ end;
 
 procedure Tform8.imgpapprio7show(Sender: TObject; Shift: TShiftState; X,Y: Single);
 begin
-  imgshowpapprio7.visible := true;
+  if lblzutat7.Text<>'' then
+    begin
+      imgshowpapprio7.visible := true;
+    end;
 end;
 
 procedure Tform8.imgpapprio8hide(Sender: TObject);
@@ -279,7 +302,10 @@ end;
 
 procedure Tform8.imgpapprio8show(Sender: TObject; Shift: TShiftState; X, Y: Single);
 begin
-  imgshowpapprio8.visible := true;
+  if lblzutat8.Text<>'' then
+    begin
+      imgshowpapprio8.visible := true;
+    end;
 end;
 
 procedure Tform8.imgpapprio9hide(Sender: TObject);
@@ -289,7 +315,10 @@ end;
 
 procedure Tform8.imgpapprio9show(Sender: TObject; Shift: TShiftState; X,Y: Single);
 begin
-  imgshowpapprio9.visible := true;
+  if lblzutat9.Text<>'' then
+    begin
+      imgshowpapprio9.visible := true;
+    end;
 end;
 
 procedure Tform8.btlogoutClick(Sender: TObject);
@@ -329,212 +358,459 @@ begin
 end;
 
 procedure Tform8.btnhinzufügenClick(Sender: TObject);
-
 begin
-  i:= i+1;
+label1.Text:= Inttostr(i); 
+test:= false;  
+if edtzutateneingabe.Text='' then
+  begin
+    showMessage('Bitte eine Zutat eingeben!')
+  end
+else
+  begin
+    if (varclick=0) and (test=false) then
+      begin
+        if (lblzutat1.Text='')and (lblzutat2.Text='') and (lblzutat3.Text='')and(lblzutat4.Text='')and(lblzutat5.Text='')and(lblzutat6.Text='')and(lblzutat7.Text='')and(lblzutat8.Text='')and(lblzutat9.Text='')then
+          begin 
+             i:= i+1;
+             lblZutat1.Text:= edtzutateneingabe.Text;
+             edtzutateneingabe.Text:= '';
+          end;
+        if (lblzutat1.Text<>'') and (lblzutat2.Text='') and (lblzutat3.Text='')and(lblzutat4.Text='')and(lblzutat5.Text='')and(lblzutat6.Text='')and(lblzutat7.Text='')and(lblzutat8.Text='')and(lblzutat9.Text='')then
+          begin
+            i:= i+1;
+            lblZutat2.Text:= edtzutateneingabe.Text;
+            edtzutateneingabe.Text:= '';
 
-  if i=1 then
-    begin
-      lblZutat1.Text:= edtzutateneingabe.Text;
-      edtzutateneingabe.Text:= '';
-    end;
-  if i=2 then
-    begin
-      lblZutat2.Text:= edtzutateneingabe.Text;
-      edtzutateneingabe.Text:= '';
-    end;
-  if i=3 then
-    begin
-      lblZutat3.Text:= edtzutateneingabe.Text;
-      edtzutateneingabe.Text:= '';
-    end;
-  if i=4 then
-    begin
-      lblZutat4.Text:= edtzutateneingabe.Text;
-      edtzutateneingabe.Text:= '';
-    end;
-  if i=5 then
-    begin
-      lblZutat5.Text:= edtzutateneingabe.Text;
-      edtzutateneingabe.Text:= '';
-    end;
-  if i=6 then
-    begin
-      lblZutat6.Text:= edtzutateneingabe.Text;
-      edtzutateneingabe.Text:= '';
-    end;
-  if i=7 then
-    begin
-      lblZutat7.Text:= edtzutateneingabe.Text;
-      edtzutateneingabe.Text:= '';
-    end;
-  if i=8 then
-    begin
-      lblZutat8.Text:= edtzutateneingabe.Text;
-      edtzutateneingabe.Text:= '';
-    end;
-  if i=9 then
-    begin
-      lblZutat9.Text:= edtzutateneingabe.Text;
-      edtzutateneingabe.Text:= '';
-    end;
+          end; 
+        if (lblzutat1.Text<>'') and (lblzutat2.Text<>'')and (lblzutat3.Text='')and(lblzutat4.Text='')and(lblzutat5.Text='')and(lblzutat6.Text='')and(lblzutat7.Text='')and(lblzutat8.Text='')and(lblzutat9.Text='')then
+          begin
+            i:= i+1;
+            lblZutat3.Text:= edtzutateneingabe.Text;
+            edtzutateneingabe.Text:= '';
+          end; 
+        if (lblzutat1.Text<>'') and (lblzutat2.Text<>'')and (lblzutat3.Text<>'')and (lblzutat4.Text='')and(lblzutat5.Text='')and(lblzutat6.Text='')and(lblzutat7.Text='')and(lblzutat8.Text='')and(lblzutat9.Text='')then
+          begin
+            i:= i+1;
+            lblZutat4.Text:= edtzutateneingabe.Text;
+            edtzutateneingabe.Text:= '';
+          end; 
+        if (lblzutat1.Text<>'') and (lblzutat2.Text<>'')and (lblzutat3.Text<>'')and (lblzutat4.Text<>'')and(lblzutat5.Text='')and(lblzutat6.Text='')and(lblzutat7.Text='')and(lblzutat8.Text='')and(lblzutat9.Text='')then
+          begin 
+            i:= i+1;
+            lblZutat5.Text:= edtzutateneingabe.Text;
+            edtzutateneingabe.Text:= '';
+          end; 
+        if (lblzutat1.Text<>'') and (lblzutat2.Text<>'')and (lblzutat3.Text<>'')and (lblzutat4.Text<>'')and(lblzutat5.Text<>'')and(lblzutat6.Text='')and(lblzutat7.Text='')and(lblzutat8.Text='')and(lblzutat9.Text='')then
+          begin
+            i:= i+1;
+            lblZutat6.Text:= edtzutateneingabe.Text;
+            edtzutateneingabe.Text:= '';
+          end; 
+        if (lblzutat1.Text<>'') and (lblzutat2.Text<>'')and (lblzutat3.Text<>'')and (lblzutat4.Text<>'')and(lblzutat5.Text<>'')and(lblzutat6.Text<>'')and(lblzutat7.Text='')and(lblzutat8.Text='')and(lblzutat9.Text='')then
+          begin
+            i:= i+1;
+            lblZutat7.Text:= edtzutateneingabe.Text;
+            edtzutateneingabe.Text:= '';
+          end; 
+        if (lblzutat1.Text<>'') and (lblzutat2.Text<>'')and (lblzutat3.Text<>'')and (lblzutat4.Text<>'')and(lblzutat5.Text<>'')and(lblzutat6.Text<>'')and(lblzutat7.Text<>'')and(lblzutat8.Text='')and(lblzutat9.Text='')then
+          begin
+            i:= i+1;
+            lblZutat8.Text:= edtzutateneingabe.Text;
+            edtzutateneingabe.Text:= '';
+          end; 
+        if (lblzutat1.Text<>'') and (lblzutat2.Text<>'')and (lblzutat3.Text<>'')and (lblzutat4.Text<>'')and(lblzutat5.Text<>'')and(lblzutat6.Text<>'')and(lblzutat7.Text<>'')and(lblzutat8.Text<>'')and(lblzutat9.Text='')then
+          begin
+            i:= i+1;
+            lblZutat9.Text:= edtzutateneingabe.Text;
+            edtzutateneingabe.Text:= '';
+          end;
+      end 
+   else
+     begin
+        if varclick=1 then
+          begin
+            lblZutat1.Text:= edtzutateneingabe.Text;
+          end;
+        if varclick=2 then
+          begin
+            lblZutat2.Text:= edtzutateneingabe.Text;
+          end;
+        if varclick=3 then
+          begin
+            lblZutat3.Text:= edtzutateneingabe.Text;
+          end;
+        if varclick=4 then
+          begin
+            lblZutat4.Text:= edtzutateneingabe.Text;
+          end;
+        if varclick=5 then
+          begin
+            lblZutat5.Text:= edtzutateneingabe.Text;
+          end;
+        if varclick=6 then
+          begin
+            lblZutat6.Text:= edtzutateneingabe.Text;
+          end;
+        if varclick=7 then
+          begin
+            lblZutat7.Text:= edtzutateneingabe.Text;
+          end;
+        if varclick=8 then
+          begin
+            lblZutat8.Text:= edtzutateneingabe.Text;
+          end;
+        if varclick=9 then
+          begin
+            lblZutat9.Text:= edtzutateneingabe.Text;
+          end;
+        varclick:=0;
+        edtzutateneingabe.Text:= ''; 
+        test:=true;
+      end;
+     if i>=18 then
+      showMessage ('Die Maximalanzahl an Zutaten wurde erreicht');
+  end;
 
 end;
 procedure Tform8.btnlabellöschenClick(Sender: TObject);
 begin
   if edtvar =1 then
-    lblZutat1.Text:= '';
+    begin
+      lblZutat1.Text:= lblzutat2.Text;
+      lblZutat2.Text:= lblzutat3.Text; 
+      lblZutat3.Text:= lblzutat4.Text;
+      lblZutat4.Text:= lblzutat5.Text;
+      lblZutat5.Text:= lblzutat6.Text;
+      lblZutat6.Text:= lblzutat7.Text; 
+      lblZutat7.Text:= lblzutat8.Text;
+      lblZutat8.Text:= lblzutat9.Text; 
+      if lblzutat2.Text='' then
+          begin
+            showMessage('Es sind keine Zutaten mehr in der Liste');
+            hgclickpapprio1.Visible:= false; 
+            i:=i-1; 
+          end
+        else
+          begin
+            edtvar:=1;
+            lblZutat9.Text:= '';
+            i:=i-1; 
+          end;
+      
+    end;
   if edtvar =2 then
-    lblZutat2.Text:= '';
+    begin
+      lblZutat2.Text:= lblzutat3.Text; 
+      lblZutat3.Text:= lblzutat4.Text;
+      lblZutat4.Text:= lblzutat5.Text;
+      lblZutat5.Text:= lblzutat6.Text;
+      lblZutat6.Text:= lblzutat7.Text; 
+      lblZutat7.Text:= lblzutat8.Text;
+      lblZutat8.Text:= lblzutat9.Text; 
+      if lblzutat3.Text='' then
+          begin
+            edtvar:=1; 
+            hgclickpapprio2.Visible:= false; 
+            hgclickpapprio1.Visible:= true; 
+          end
+        else
+          begin
+            edtvar:=2;
+            lblZutat9.Text:= '';
+          end; 
+      i:=i-1; 
+    end;
   if edtvar =3 then
-    lblZutat3.Text:= '';
+    begin
+      lblZutat3.Text:= lblzutat4.Text;
+      lblZutat4.Text:= lblzutat5.Text;
+      lblZutat5.Text:= lblzutat6.Text;
+      lblZutat6.Text:= lblzutat7.Text; 
+      lblZutat7.Text:= lblzutat8.Text;
+      lblZutat8.Text:= lblzutat9.Text; 
+      if lblzutat4.Text='' then
+          begin
+            edtvar:=2; 
+            hgclickpapprio3.Visible:= false; 
+            hgclickpapprio2.Visible:= true; 
+          end
+        else
+          begin
+            edtvar:=3;
+            lblZutat9.Text:= '';
+          end; 
+      i:=i-1; 
+    end;
   if edtvar =4 then
-    lblZutat4.Text:= '';
+    begin
+      lblZutat4.Text:= lblzutat5.Text;
+      lblZutat5.Text:= lblzutat6.Text;
+      lblZutat6.Text:= lblzutat7.Text; 
+      lblZutat7.Text:= lblzutat8.Text;
+      lblZutat8.Text:= lblzutat9.Text; 
+      if lblzutat5.Text='' then
+          begin
+            edtvar:=3; 
+            hgclickpapprio4.Visible:= false; 
+            hgclickpapprio3.Visible:= true; 
+          end
+        else
+          begin
+            edtvar:=4;
+            lblZutat9.Text:= '';
+          end; 
+      i:=i-1; 
+    end;
   if edtvar =5 then
-    lblZutat6.Text:= '';
+    begin
+      lblZutat5.Text:= lblzutat6.Text;
+      lblZutat6.Text:= lblzutat7.Text; 
+      lblZutat7.Text:= lblzutat8.Text;
+      lblZutat8.Text:= lblzutat9.Text; 
+      if lblzutat6.Text='' then
+          begin
+            edtvar:=4; 
+            hgclickpapprio5.Visible:= false; 
+            hgclickpapprio4.Visible:= true; 
+          end
+        else
+          begin
+            edtvar:=5;
+            lblZutat9.Text:= '';
+          end; 
+      i:=i-1; 
+    end; 
   if edtvar =6 then
-    lblZutat7.Text:= '';
+    begin
+      lblZutat6.Text:= lblzutat7.Text;
+      lblZutat7.Text:= lblzutat8.Text;
+      lblZutat8.Text:= lblzutat9.Text; 
+      if lblzutat7.Text='' then
+          begin
+            edtvar:=5; 
+            hgclickpapprio6.Visible:= false; 
+            hgclickpapprio5.Visible:= true; 
+          end
+        else
+          begin
+            edtvar:=6;
+            lblZutat9.Text:= '';
+          end; 
+      i:=i-1; 
+    end; 
   if edtvar =7 then
-    lblZutat6.Text:= '';
+    begin
+      lblZutat7.Text:= lblzutat8.Text;
+      lblZutat8.Text:= lblzutat9.Text; 
+        if lblzutat8.Text='' then
+          begin
+            edtvar:=6; 
+            hgclickpapprio7.Visible:= false; 
+            hgclickpapprio6.Visible:= true; 
+          end
+        else
+          begin
+            edtvar:=7;
+            lblZutat9.Text:= '';
+          end;
+      i:=i-1; 
+    end;
   if edtvar =8 then
-    lblZutat8.Text:= '';
+    begin 
+      lblZutat8.Text:= lblzutat9.Text;
+        if lblzutat9.Text='' then
+          begin
+            edtvar:=7; 
+            hgclickpapprio8.Visible:= false;
+            hgclickpapprio7.Visible:= true; 
+          end
+        else
+          begin
+            edtvar:=8; 
+            lblZutat9.Text:= '';
+          end;
+    i:=i-1; 
+    end;
   if edtvar =9 then
-    lblZutat9.Text:= '';
+    begin
+      lblZutat9.Text:= '';
+      edtvar:=8;
+      hgclickpapprio9.Visible:=false; 
+      hgclickpapprio8.Visible:=true;
+      i:=i-1; 
+    end; 
+  
 end;
 
 procedure Tform8.btnpapprio1Click(Sender: TObject);
 begin
-  btnpapprio.Visible:= true;
-  edtvar:= 1;
-  hgclickpapprio1.Visible:= true;
-  hgclickpapprio2.Visible:= false;
-  hgclickpapprio3.Visible:= false;
-  hgclickpapprio4.Visible:= false;
-  hgclickpapprio5.Visible:= false;
-  hgclickpapprio6.Visible:= false;
-  hgclickpapprio7.Visible:= false;
-  hgclickpapprio8.Visible:= false;
-  hgclickpapprio9.Visible:= false;
+  if lblzutat1.Text<>'' then
+    begin
+      btnpapprio.Visible:= true;
+      edtvar:= 1;
+      hgclickpapprio1.Visible:= true;
+      hgclickpapprio2.Visible:= false;
+      hgclickpapprio3.Visible:= false;
+      hgclickpapprio4.Visible:= false;
+      hgclickpapprio5.Visible:= false;
+      hgclickpapprio6.Visible:= false;
+      hgclickpapprio7.Visible:= false;
+      hgclickpapprio8.Visible:= false;
+      hgclickpapprio9.Visible:= false;
+      varclick:=1; 
+    end
 end;
 
 procedure Tform8.btnpapprio2Click(Sender: TObject);
 begin
-  btnpapprio.Visible:= true;
-  edtvar:= 2;
-  hgclickpapprio2.Visible:= true;
-  hgclickpapprio1.Visible:= false;
-  hgclickpapprio3.Visible:= false;
-  hgclickpapprio4.Visible:= false;
-  hgclickpapprio5.Visible:= false;
-  hgclickpapprio6.Visible:= false;
-  hgclickpapprio7.Visible:= false;
-  hgclickpapprio8.Visible:= false;
-  hgclickpapprio9.Visible:= false;
+  if lblzutat2.Text<> '' then
+    begin
+      btnpapprio.Visible:= true;
+      edtvar:= 2;
+      hgclickpapprio2.Visible:= true;
+      hgclickpapprio1.Visible:= false;
+      hgclickpapprio3.Visible:= false;
+      hgclickpapprio4.Visible:= false;
+      hgclickpapprio5.Visible:= false;
+      hgclickpapprio6.Visible:= false;
+      hgclickpapprio7.Visible:= false;
+      hgclickpapprio8.Visible:= false;
+      hgclickpapprio9.Visible:= false;   
+      varclick:=2; 
+    end
 end;
 
 procedure Tform8.btnpapprio3Click(Sender: TObject);
 begin
-  btnpapprio.Visible:= true;
-  edtvar:= 3;
-  hgclickpapprio3.Visible:= true;
-  hgclickpapprio2.Visible:= false;
-  hgclickpapprio1.Visible:= false;
-  hgclickpapprio4.Visible:= false;
-  hgclickpapprio5.Visible:= false;
-  hgclickpapprio6.Visible:= false;
-  hgclickpapprio7.Visible:= false;
-  hgclickpapprio8.Visible:= false;
-  hgclickpapprio9.Visible:= false;
+  if lblzutat3.Text <> '' then
+    begin
+      btnpapprio.Visible:= true;
+      edtvar:= 3;
+      hgclickpapprio3.Visible:= true;
+      hgclickpapprio2.Visible:= false;
+      hgclickpapprio1.Visible:= false;
+      hgclickpapprio4.Visible:= false;
+      hgclickpapprio5.Visible:= false;
+      hgclickpapprio6.Visible:= false;
+      hgclickpapprio7.Visible:= false;
+      hgclickpapprio8.Visible:= false;
+      hgclickpapprio9.Visible:= false;
+      varclick:= 3; 
+    end; 
 end;
 
 procedure Tform8.btnpapprio4Click(Sender: TObject);
 begin
-  btnpapprio.Visible:= true;
-  edtvar:= 4;
-  hgclickpapprio4.Visible:= true;
-  hgclickpapprio2.Visible:= false;
-  hgclickpapprio3.Visible:= false;
-  hgclickpapprio1.Visible:= false;
-  hgclickpapprio5.Visible:= false;
-  hgclickpapprio6.Visible:= false;
-  hgclickpapprio7.Visible:= false;
-  hgclickpapprio8.Visible:= false;
-  hgclickpapprio9.Visible:= false;
+  if lblzutat4.Text<> '' then
+    begin
+      btnpapprio.Visible:= true;
+      edtvar:= 4;
+      hgclickpapprio4.Visible:= true;
+      hgclickpapprio2.Visible:= false;
+      hgclickpapprio3.Visible:= false;
+      hgclickpapprio1.Visible:= false;
+      hgclickpapprio5.Visible:= false;
+      hgclickpapprio6.Visible:= false;
+      hgclickpapprio7.Visible:= false;
+      hgclickpapprio8.Visible:= false;
+      hgclickpapprio9.Visible:= false;
+      varclick:=4; 
+    end; 
 end;
 
 procedure Tform8.btnpapprio5Click(Sender: TObject);
 begin
-  btnpapprio.Visible:= true;
-  edtvar:= 5;
-  hgclickpapprio5.Visible:= true;
-  hgclickpapprio2.Visible:= false;
-  hgclickpapprio3.Visible:= false;
-  hgclickpapprio4.Visible:= false;
-  hgclickpapprio1.Visible:= false;
-  hgclickpapprio6.Visible:= false;
-  hgclickpapprio7.Visible:= false;
-  hgclickpapprio8.Visible:= false;
-  hgclickpapprio9.Visible:= false;
+  if lblzutat5.Text<> '' then
+    begin
+      btnpapprio.Visible:= true;
+      edtvar:= 5;
+      hgclickpapprio5.Visible:= true;
+      hgclickpapprio2.Visible:= false;
+      hgclickpapprio3.Visible:= false;
+      hgclickpapprio4.Visible:= false;
+      hgclickpapprio1.Visible:= false;
+      hgclickpapprio6.Visible:= false;
+      hgclickpapprio7.Visible:= false;
+      hgclickpapprio8.Visible:= false;
+      hgclickpapprio9.Visible:= false;
+      varclick:=5;
+    end;
 end;
 
 procedure Tform8.btnpapprio6Click(Sender: TObject);
 begin
-  btnpapprio.Visible:= true;
-  edtvar:= 6;
-  hgclickpapprio6.Visible:= true;
-  hgclickpapprio2.Visible:= false;
-  hgclickpapprio3.Visible:= false;
-  hgclickpapprio4.Visible:= false;
-  hgclickpapprio5.Visible:= false;
-  hgclickpapprio1.Visible:= false;
-  hgclickpapprio7.Visible:= false;
-  hgclickpapprio8.Visible:= false;
-  hgclickpapprio9.Visible:= false;
+  if lblzutat6.Text<> '' then
+    begin
+      btnpapprio.Visible:= true;
+      edtvar:= 6;
+      hgclickpapprio6.Visible:= true;
+      hgclickpapprio2.Visible:= false;
+      hgclickpapprio3.Visible:= false;
+      hgclickpapprio4.Visible:= false;
+      hgclickpapprio5.Visible:= false;
+      hgclickpapprio1.Visible:= false;
+      hgclickpapprio7.Visible:= false;
+      hgclickpapprio8.Visible:= false;
+      hgclickpapprio9.Visible:= false;
+      varclick:=6;
+    end;
 end;
 
 procedure Tform8.btnpapprio7Click(Sender: TObject);
 begin
-  btnpapprio.Visible:= true;
-  edtvar:= 7;
-  hgclickpapprio7.Visible:= true;
-  hgclickpapprio2.Visible:= false;
-  hgclickpapprio3.Visible:= false;
-  hgclickpapprio4.Visible:= false;
-  hgclickpapprio5.Visible:= false;
-  hgclickpapprio6.Visible:= false;
-  hgclickpapprio1.Visible:= false;
-  hgclickpapprio8.Visible:= false;
-  hgclickpapprio9.Visible:= false;
+  if lblzutat7.Text<> '' then
+    begin
+      btnpapprio.Visible:= true;
+      edtvar:= 7;
+      hgclickpapprio7.Visible:= true;
+      hgclickpapprio2.Visible:= false;
+      hgclickpapprio3.Visible:= false;
+      hgclickpapprio4.Visible:= false;
+      hgclickpapprio5.Visible:= false;
+      hgclickpapprio6.Visible:= false;
+      hgclickpapprio1.Visible:= false;
+      hgclickpapprio8.Visible:= false;
+      hgclickpapprio9.Visible:= false;
+      varclick:=7;
+    end
 end;
 
 procedure Tform8.btnpapprio8Click(Sender: TObject);
 begin
-  btnpapprio.Visible:= true;
-  edtvar:= 8;
-  hgclickpapprio8.Visible:= true;
-  hgclickpapprio2.Visible:= false;
-  hgclickpapprio3.Visible:= false;
-  hgclickpapprio4.Visible:= false;
-  hgclickpapprio5.Visible:= false;
-  hgclickpapprio6.Visible:= false;
-  hgclickpapprio7.Visible:= false;
-  hgclickpapprio1.Visible:= false;
-  hgclickpapprio9.Visible:= false;
+  if lblzutat8.Text<> '' then
+    begin
+      btnpapprio.Visible:= true;
+      edtvar:= 8;
+      hgclickpapprio8.Visible:= true;
+      hgclickpapprio2.Visible:= false;
+      hgclickpapprio3.Visible:= false;
+      hgclickpapprio4.Visible:= false;
+      hgclickpapprio5.Visible:= false;
+      hgclickpapprio6.Visible:= false;
+      hgclickpapprio7.Visible:= false;
+      hgclickpapprio1.Visible:= false;
+      hgclickpapprio9.Visible:= false;
+      varclick:=8;
+    end;
 end;
 
 procedure Tform8.btnpapprio9Click(Sender: TObject);
 begin
-  btnpapprio.Visible:= true;
-  edtvar:= 9;
-  hgclickpapprio9.Visible:= true;
-  hgclickpapprio2.Visible:= false;
-  hgclickpapprio3.Visible:= false;
-  hgclickpapprio4.Visible:= false;
-  hgclickpapprio5.Visible:= false;
-  hgclickpapprio6.Visible:= false;
-  hgclickpapprio7.Visible:= false;
-  hgclickpapprio8.Visible:= false;
-  hgclickpapprio1.Visible:= false;
+  if lblzutat9.Text<> '' then
+    begin
+      btnpapprio.Visible:= true;
+      edtvar:= 9;
+      hgclickpapprio9.Visible:= true;
+      hgclickpapprio2.Visible:= false;
+      hgclickpapprio3.Visible:= false;
+      hgclickpapprio4.Visible:= false;
+      hgclickpapprio5.Visible:= false;
+      hgclickpapprio6.Visible:= false;
+      hgclickpapprio7.Visible:= false;
+      hgclickpapprio8.Visible:= false;
+      hgclickpapprio1.Visible:= false;
+      varclick:=9;
+    end;
 end;
 
 procedure Tform8.btnpriodownClick(Sender: TObject);
@@ -543,77 +819,101 @@ begin
       showMessage('Zutat hat schon unterste Priorität!');
     if edtvar=8 then
       begin
-        merke:= lblzutat8.Text;
-        lblzutat8.Text:= lblzutat9.Text;
-        lblzutat9.Text:= merke;
-        edtvar:=9;
-        hgclickpapprio9.Visible:= true;
-        hgclickpapprio8.Visible:= false;
+        if lblzutat9.Text<>'' then
+           begin
+              merke:= lblzutat8.Text;
+              lblzutat8.Text:= lblzutat9.Text;
+              lblzutat9.Text:= merke;
+              edtvar:=9;
+              hgclickpapprio9.Visible:= true;
+              hgclickpapprio8.Visible:= false;
+           end;
+        
       end;
     if edtvar=7 then
       begin
-        merke:= lblzutat7.Text;
-        lblzutat7.Text:= lblzutat8.Text;
-        lblzutat8.Text:= merke;
-        edtvar:=8;
-        hgclickpapprio8.Visible:= true;
-        hgclickpapprio7.Visible:= false;
+        if lblzutat8.Text<>'' then
+          begin
+            merke:= lblzutat7.Text;
+            lblzutat7.Text:= lblzutat8.Text;
+            lblzutat8.Text:= merke;
+            edtvar:=8;
+            hgclickpapprio8.Visible:= true;
+            hgclickpapprio7.Visible:= false;          
+          end;
       end;
     if edtvar=6 then
       begin
-        merke:= lblzutat6.Text;
-        lblzutat6.Text:= lblzutat7.Text;
-        lblzutat7.Text:= merke;
-        edtvar:=7;
-        hgclickpapprio7.Visible:= true;
-        hgclickpapprio6.Visible:= false;
+        if lblzutat7.Text<>'' then
+          begin
+            merke:= lblzutat6.Text;
+            lblzutat6.Text:= lblzutat7.Text;
+            lblzutat7.Text:= merke;
+            edtvar:=7;
+            hgclickpapprio7.Visible:= true;
+            hgclickpapprio6.Visible:= false;          
+          end;
       end;
     if edtvar=5 then
       begin
-        merke:= lblzutat5.Text;
-        lblzutat5.Text:= lblzutat6.Text;
-        lblzutat6.Text:= merke;
-        edtvar:=6;
-        hgclickpapprio6.Visible:= true;
-        hgclickpapprio5.Visible:= false;
+        if lblzutat6.Text<>'' then
+          begin
+            merke:= lblzutat5.Text;
+            lblzutat5.Text:= lblzutat6.Text;
+            lblzutat6.Text:= merke;
+            edtvar:=6;
+            hgclickpapprio6.Visible:= true;
+            hgclickpapprio5.Visible:= false;          
+          end;
       end;
     if edtvar=4 then
       begin
-        merke:= lblzutat4.Text;
-        lblzutat4.Text:= lblzutat5.Text;
-        lblzutat5.Text:= merke;
-        edtvar:=5;
-        hgclickpapprio5.Visible:= true;
-        hgclickpapprio4.Visible:= false;
+        if lblzutat5.Text<>'' then
+          begin
+            merke:= lblzutat4.Text;
+            lblzutat4.Text:= lblzutat5.Text;
+            lblzutat5.Text:= merke;
+            edtvar:=5;
+            hgclickpapprio5.Visible:= true;
+            hgclickpapprio4.Visible:= false;          
+          end;
       end;
     if edtvar=3 then
       begin
-        merke:= lblzutat3.Text;
-        lblzutat3.Text:= lblzutat4.Text;
-        lblzutat4.Text:= merke;
-        edtvar:=4;
-        hgclickpapprio4.Visible:= true;
-        hgclickpapprio3.Visible:= false;
+        if lblzutat4.Text<>'' then
+          begin
+            merke:= lblzutat3.Text;
+            lblzutat3.Text:= lblzutat4.Text;
+            lblzutat4.Text:= merke;
+            edtvar:=4;
+            hgclickpapprio4.Visible:= true;
+            hgclickpapprio3.Visible:= false;          
+          end;
       end;
     if edtvar=2 then
       begin
-        merke:= lblzutat2.Text;
-        lblzutat2.Text:= lblzutat3.Text;
-        lblzutat3.Text:= merke;
-        edtvar:=3;
-        hgclickpapprio3.Visible:= true;
-        hgclickpapprio2.Visible:= false;
+        if lblzutat3.Text<>'' then
+          begin
+            merke:= lblzutat2.Text;
+            lblzutat2.Text:= lblzutat3.Text;
+            lblzutat3.Text:= merke;
+            edtvar:=3;
+            hgclickpapprio3.Visible:= true;
+            hgclickpapprio2.Visible:= false;          
+          end;
       end;
     if edtvar=1 then
       begin
-        merke:= lblzutat1.Text;
-        lblzutat1.Text:= lblzutat2.Text;
-        lblzutat2.Text:= merke;
-        edtvar:=2;
-        hgclickpapprio2.Visible:= true;
-        hgclickpapprio1.Visible:= false;
+        if lblzutat2.Text<>'' then
+          begin
+            merke:= lblzutat1.Text;
+            lblzutat1.Text:= lblzutat2.Text;
+            lblzutat2.Text:= merke;
+            edtvar:=2;
+            hgclickpapprio2.Visible:= true;
+            hgclickpapprio1.Visible:= false;          
+          end;
       end;
-
 end;
 
 procedure Tform8.btnprioupClick(Sender: TObject);
