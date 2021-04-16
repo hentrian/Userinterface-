@@ -72,6 +72,7 @@ type
     btnprioup: TImage;
     btnpriodown: TImage;
     Label1: TLabel;
+    Image1: TImage;
     procedure btkühlschrankClick(Sender: TObject);
     procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure hghomehide(Sender: TObject);
