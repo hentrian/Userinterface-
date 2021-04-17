@@ -1,0 +1,79 @@
+unit Unit9;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls;
+
+type
+  TForm9 = class(TForm)
+    hgblackmamor: TRectangle;
+    lbfrage: TLabel;
+    hgja: TImage;
+    hgnein: TImage;
+    lbja: TLabel;
+    lbnein: TLabel;
+    btnabbrechen: TImage;
+    btnja: TImage;
+    btnnein: TImage;
+    procedure btnabbrechenClick(Sender: TObject);
+    procedure btnjaClick(Sender: TObject);
+    procedure btnneinClick(Sender: TObject);
+  private
+    { Private-Deklarationen }
+  public
+    { Public-Deklarationen }
+  end;
+
+var
+  Form9: TForm9;
+  speichern: integer = 0;
+
+implementation
+
+{$R *.fmx}
+
+uses Unit4, Unit8;
+
+procedure TForm9.btnabbrechenClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure TForm9.btnjaClick(Sender: TObject);
+begin
+  Form9.Hide;
+  Form4.Show;
+  Form8.Hide;
+end;
+
+procedure TForm9.btnneinClick(Sender: TObject);
+begin
+  Form9.Hide;
+  Form4.show;
+  Form8.Hide;
+  form8.edtzutateneingabe.Text:='';
+  form8.lblzutat1.Text:= '';
+  form8.lblzutat2.Text:= '';
+  form8.lblzutat3.Text:= '';
+  form8.lblzutat4.Text:= '';
+  form8.lblzutat5.Text:= '';
+  form8.lblzutat6.Text:= '';
+  form8.lblzutat7.Text:= '';
+  form8.lblzutat8.Text:= '';
+  form8.lblzutat9.Text:= '';
+  form8.hgclickpapprio6.Visible:= false;
+  form8.hgclickpapprio2.Visible:= false;
+  form8.hgclickpapprio3.Visible:= false;
+  form8.hgclickpapprio4.Visible:= false;
+  form8.hgclickpapprio5.Visible:= false;
+  form8.hgclickpapprio1.Visible:= false;
+  form8.hgclickpapprio7.Visible:= false;
+  form8.hgclickpapprio8.Visible:= false;
+  form8.hgclickpapprio9.Visible:= false;
+end;
+
+end.
+

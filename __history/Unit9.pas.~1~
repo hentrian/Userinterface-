@@ -1,0 +1,55 @@
+unit Unit9;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls;
+
+type
+  TForm9 = class(TForm)
+    hgblackmamor: TRectangle;
+    lbfrage: TLabel;
+    hgja: TImage;
+    hgnein: TImage;
+    lbja: TLabel;
+    lbnein: TLabel;
+    btnabbrechen: TImage;
+    btnja: TImage;
+    btnnein: TImage;
+    procedure btnabbrechenClick(Sender: TObject);
+    procedure btnjaClick(Sender: TObject);
+    procedure btnneinClick(Sender: TObject);
+  private
+    { Private-Deklarationen }
+  public
+    { Public-Deklarationen }
+  end;
+
+var
+  Form9: TForm9;
+  speichern: boolean;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm9.btnabbrechenClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
+procedure TForm9.btnjaClick(Sender: TObject);
+begin
+  speichern:=true;
+  Form9.Hide;
+end;
+
+procedure TForm9.btnneinClick(Sender: TObject);
+begin
+  speichern:= false;
+  Form9.Hide;
+end;
+
+end.

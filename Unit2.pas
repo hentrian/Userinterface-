@@ -21,6 +21,7 @@ type
     procedure Image2Click(Sender: TObject);
     procedure Image6Click(Sender: TObject);
     procedure TClick(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -34,11 +35,17 @@ implementation
 
 {$R *.fmx}
 
-uses Unit1, Unit4;
+uses Unit1, Unit4, Unit11;
 
 procedure TForm2.Image2Click(Sender: TObject);
 begin
   application.Terminate;
+end;
+
+procedure TForm2.Image3Click(Sender: TObject);
+begin
+  Form2.Hide;
+  Form11.show;
 end;
 
 procedure TForm2.Image6Click(Sender: TObject);

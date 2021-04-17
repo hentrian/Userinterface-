@@ -30,6 +30,7 @@ type
     wbtnfrühstück: TImage;
     hglogout: TImage;
     btlogout: TImage;
+    hgauswahl: TImage;
     procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure hghomehide(Sender: TObject);
     procedure hgherzhide(Sender: TObject);
@@ -49,6 +50,7 @@ type
     procedure btlogoutClick(Sender: TObject);
     procedure hglogouthide(Sender: TObject);
     procedure hglogoutshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
+    procedure btsucheClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -62,7 +64,7 @@ implementation
 
 {$R *.fmx}
 
-uses Unit2;
+uses Unit2, Unit11;
 
 procedure TForm4.btfrühstückClick(Sender: TObject);
 begin
@@ -151,6 +153,12 @@ procedure TForm4.btlogoutClick(Sender: TObject);
 begin
   Form4.Hide;
   Form3.show;
+end;
+
+procedure TForm4.btsucheClick(Sender: TObject);
+begin
+  Form4.Hide;
+  Form11.show;
 end;
 
 procedure TForm4.bboffClick(Sender: TObject);

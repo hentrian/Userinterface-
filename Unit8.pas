@@ -71,9 +71,10 @@ type
     hgclickpapprio9: TImage;
     btnprioup: TImage;
     btnpriodown: TImage;
-    Label1: TLabel;
-    Image1: TImage;
-    procedure btkühlschrankClick(Sender: TObject);
+    btnlosgehts: TImage;
+    btnzurück: TImage;
+    hgauswahl: TImage;
+    procedure ck(Sender: TObject);
     procedure hghomeshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure hghomehide(Sender: TObject);
     procedure hgherzhide(Sender: TObject);
@@ -131,6 +132,10 @@ type
     procedure btnlabellöschenClick(Sender: TObject);
     procedure btnprioupClick(Sender: TObject);
     procedure btnpriodownClick(Sender: TObject);
+    procedure btnzurückClick(Sender: TObject);
+    procedure btnlosgehtsClick(Sender: TObject);
+    procedure btnsucheclick(Sender: TObject);
+    procedure btnhomeclick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -143,14 +148,15 @@ var
   edtvar: integer = 0;
   merke: string = '';
   varclick: integer =0; 
-  test:boolean; 
+  test:boolean;
+  varbtnclick: string;
 implementation
 
 {$R *.fmx}
 
-uses Unit2, Unit1;
+uses Unit2, Unit1, Unit9, Unit4, Unit10, unit11;
 
-procedure Tform8.btkühlschrankClick(Sender: TObject);
+procedure Tform8.ck(Sender: TObject);
 begin
   Form8.Hide;
   form2.Show;
@@ -199,6 +205,12 @@ end;
 procedure Tform8.hgsucheshow(Sender: TObject; Shift: TShiftState; X, Y: Single);
 begin
   hgsuche.visible:= true;
+end;
+
+procedure Tform8.btnzurückClick(Sender: TObject);
+begin
+  form9.Show;
+  varbtnclick :='zurück';
 end;
 
 procedure Tform8.imgpapprio1hide(Sender: TObject);
@@ -324,8 +336,7 @@ end;
 
 procedure Tform8.btlogoutClick(Sender: TObject);
 begin
-  Form8.Hide;
-  Form1.show;
+  varbtnclick :='logout';
 end;
 
 procedure Tform8.btlogouthide(Sender: TObject);
@@ -360,8 +371,7 @@ end;
 
 procedure Tform8.btnhinzufügenClick(Sender: TObject);
 begin
-label1.Text:= Inttostr(i); 
-test:= false;  
+test:= false;
 if edtzutateneingabe.Text='' then
   begin
     showMessage('Bitte eine Zutat eingeben!')
@@ -473,6 +483,12 @@ else
   end;
 
 end;
+procedure Tform8.btnhomeclick(Sender: TObject);
+begin
+  Form9.Show;
+  varbtnclick:= 'home';
+end;
+
 procedure Tform8.btnlabellöschenClick(Sender: TObject);
 begin
   if edtvar =1 then
@@ -641,6 +657,12 @@ begin
       i:=i-1; 
     end; 
   
+end;
+
+procedure Tform8.btnlosgehtsClick(Sender: TObject);
+begin
+  Form8.Hide;
+  Form10.show;
 end;
 
 procedure Tform8.btnpapprio1Click(Sender: TObject);
@@ -994,6 +1016,11 @@ begin
       hgclickpapprio9.Visible:= false;
     end;
 
+end;
+
+procedure Tform8.btnsucheclick(Sender: TObject);
+begin
+  varbtnclick:= 'suche';
 end;
 
 {zuaten hinzufügen mit einem Label
