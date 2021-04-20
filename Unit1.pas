@@ -35,6 +35,7 @@ procedure TForm1.btstartClick(Sender: TObject);
 begin
   Form1.Hide;
   Form3.Show;
+  //do nothing
 end;
 
 procedure TForm1.Image2Click(Sender: TObject);
